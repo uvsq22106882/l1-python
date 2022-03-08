@@ -1,22 +1,49 @@
-from tkinter import *
+x=150
+y=150
+r=50
+x1=20
+y1=15
+import tkinter as tk
+ 
+racine = tk.Tk() # Création de la fenêtre racine
+racine.title("Mon dessin") # ajoute un titre 
+couleur="blue"
+couleur=str(input("choisir une couleur "))
+ 
+def cercle():
+  canvas.create_oval(x-r, y+r, x+r, y-r, fill=couleur)
+  return cercle 
+ 
+def carré():
+    canvas.create_rectangle(x, y, x1, y1, fill=couleur)
+    return carré
 
-CANVAS_WIDTH, CANVAS_HEIGHT = 600, 400
+def croix():
+    canvas.create_line(50,150,150,50, fill=couleur)
+    canvas.create_line(50,50,150,150, fill=couleur)  
+    return croix 
 
-if __name__ == '__main__':
-    root = Tk()
+def ChoisircCouleur():
+   global couleur
+   couleur = input("Choisir une couleur, soit :\n-white,\n-black,\n-red,\n-green,\n-blue,\n-cyan,\n-yellow")    
 
-    canvas = Canvas(root, width = CANVAS_WIDTH, height = CANVAS_HEIGHT)
 
-    # Début de votre code
-    x0 = 100
-    x1 = CANVAS_WIDTH - 100
-    y = CANVAS_HEIGHT / 2
-    canvas.create_line(x0, y, x1, y)
-    canvas.create_oval(x0 - 50, y + 50, x0 + 50, y - 50)
-    canvas.create_oval(x1 - 50, y + 50, x1 + 50, y - 50)
-    canvas.create_oval((x0 + x1) / 2 - 50, y + 50, (x0 + x1) / 2 + 50, y - 50)
-    
-    # Fin de votre code
 
-    canvas.pack()
-    root.mainloop()
+
+bouton1 = tk.Button(text="Choisir une couleur", activebackground="brown")
+bouton1.grid(row=0, column=2)
+
+bouton2 = tk.Button(text="Cercle", activebackground="green", command=cercle)
+bouton2.grid(row=1, column=0)
+ 
+bouton3 = tk.Button(text="Carré", activebackground="green" , command=carré)
+bouton3.grid(row=2, column=0)
+ 
+bouton4 = tk.Button(text="croix", activebackground="green", command=croix)
+bouton4.grid(row=3, column=0)
+ 
+canvas = tk.Canvas(background="black")
+canvas.grid(row=1, column=1, rowspan=3, columnspan=4)
+ 
+racine.mainloop() # Lancement de la boucle principale
+

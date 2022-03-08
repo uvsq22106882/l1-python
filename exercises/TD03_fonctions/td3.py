@@ -1,4 +1,4 @@
-temps=(3,23,1,34)
+temps=(input("entrer une valeur"),input("entrer une valeur"),input("entrer une valuer"),input("entrer une valeur"))
 def tempsEnSeconde (a):
      seconde = temps[0]*86400+temps[1]*3600+temps[2]*60+temps[3] 
      return seconde 
